@@ -1,5 +1,5 @@
 ### Overview
-This project is a task management application built using ReactJS and Tailwind CSS. It allows users to efficiently manage tasks by adding, editing, deleting, and marking tasks as completed. The app comprises several key components: TaskList, TaskItem, AddModal, and EditModal.
+This project is a task management application built using ReactJS and Tailwind CSS. It allows users to efficiently manage tasks by adding, editing, deleting, and marking tasks as completed.
 
 ### Project Structure
 public/: Contains the index.html file
