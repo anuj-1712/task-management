@@ -7,7 +7,7 @@ export const AppContext = (props) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [dueDate, setDueDate] = useState("");
-  const [priority, setPriority] = useState("");
+  const [priority, setPriority] = useState("Low");
   const [selectedTask, setSelectedTask] = useState(0);
   
   return (

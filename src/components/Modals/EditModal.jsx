@@ -51,7 +51,7 @@ export default function EditModal() {
     resetToInitialValues();
   };
   return (
-    <div className="flex flex-col gap-4 rounded-md bg-blue-800 absolute top-[40%] left-[50%] -translate-x-[50%] -translate-y-[40%] px-4 py-6 w-10/12 max-w-[450px] z-10" data-testid="editModal">
+    <div className="flex flex-col gap-4 rounded-md bg-blue-800 absolute top-[40%] left-[50%] -translate-x-[50%] -translate-y-[40%] px-4 py-6 w-10/12 max-w-[450px] z-10">
       <h2 className="text-2xl text-white font-serif font-medium text-center">
         Edit Task Name
       </h2>

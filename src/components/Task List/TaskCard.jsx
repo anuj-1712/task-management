@@ -30,7 +30,7 @@ export default function TaskCard({ task, position }) {
   const deleteTask = () => {
     tasks.splice(position, 1);
     setTasks([...tasks]);
-    localStorage.setItem("tasks",JSON.stringify([...tasks]))
+    localStorage.setItem("tasks", JSON.stringify([...tasks]));
   };
 
   const updateStatus = () => {
@@ -40,21 +40,26 @@ export default function TaskCard({ task, position }) {
         return index === position ? updatedTask : task;
       });
       setTasks(updatedTaskArr);
-      localStorage.setItem("tasks",JSON.stringify(updatedTaskArr))
+      localStorage.setItem("tasks", JSON.stringify(updatedTaskArr));
     } else {
       const updatedTask = { ...task, status: "Pending" };
       const updatedTaskArr = tasks.map((task, index) => {
         return index === position ? updatedTask : task;
       });
       setTasks(updatedTaskArr);
-      localStorage.setItem("tasks",JSON.stringify(updatedTaskArr))
+      localStorage.setItem("tasks", JSON.stringify(updatedTaskArr));
     }
   };
 
   return (
     <div
-      className={`flex flex-col ${task.priority === "High" ? "bg-red-500" : task.priority === "Medium" ? "bg-yellow-500" : "bg-green-500"} text-white rounded-md gap-2 px-2 py-4 w-full mx-auto md:mx-0 md:max-w-[350px]`}
-      data-testid={`task-${position}`}
+      className={`flex flex-col ${
+        task.priority === "High"
+          ? "bg-red-500"
+          : task.priority === "Medium"
+          ? "bg-yellow-500"
+          : "bg-green-500"
+      } text-white rounded-md gap-2 px-2 py-4 w-full mx-auto md:mx-0 md:max-w-[350px]`}
     >
       <h3 className="text-2xl font-bold border-b-[1px] border-white pb-2">
         {task.title}
@@ -65,7 +70,11 @@ export default function TaskCard({ task, position }) {
       </p>
       <div className="flex justify-between items-center">
         <div className="flex gap-2">
-          <input type="checkbox" onChange={updateStatus} checked={task.status === "Completed" || ""}/>
+          <input
+            type="checkbox"
+            onChange={updateStatus}
+            checked={task.status === "Completed" || ""}
+          />
           <p
             className={`${
               task.status === "Pending" ? "bg-red-600" : "bg-green-600"

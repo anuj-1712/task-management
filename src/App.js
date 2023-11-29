@@ -2,7 +2,7 @@ import "./App.css";
 import AddModal from "./components/Modals/AddModal";
 import EditModal from "./components/Modals/EditModal";
 import TaskList from "./components/Task List/TaskList";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route,useLocation } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import { Context } from "./contextapi/contextapi";
 import Header from "./components/Header/Header";
@@ -11,6 +11,7 @@ import SortBtn from "./components/SortBtn/SortBtn";
 
 function App() {
   const { setTasks, tasks } = useContext(Context);
+  const location = useLocation()
 
   useEffect(() => {
     let tasks = localStorage.getItem("tasks");
@@ -21,9 +22,9 @@ function App() {
   }, [setTasks]);
 
   return (
-    <main className="p-4 sm:p-8 bg-black h-screen">
+    <main className="p-4 sm:p-8 bg-black min-h-screen">
       <div
-        className={`p-2 bg-slate-900 rounded-md border-[1px] border-slate-900 h-full `}
+        className={`p-2 bg-slate-900 rounded-md border-[1px] border-slate-900 min-h-screen`}
       >
         <Header />
         {tasks?.length === 0 && (
@@ -49,6 +50,22 @@ function App() {
           <Route path="/add" element={<AddModal />} />
           <Route path="/edit" element={<EditModal />} />
         </Routes>
+        {tasks?.length > 1 && location.pathname === "/" && (
+          <div className="flex gap-2 mt-10 mx-4">
+            <div className="flex gap-1 items-center">
+              <p className="h-[7px] w-[7px] bg-red-500"></p>
+              <p className="text-white text-xs">High</p>
+            </div>
+            <div className="flex gap-1 items-center">
+              <p className="h-[7px] w-[7px] bg-yellow-500"></p>
+              <p className="text-white text-xs">Medium</p>
+            </div>
+            <div className="flex gap-1 items-center">
+              <p className="h-[7px] w-[7px] bg-green-500"></p>
+              <p className="text-white text-xs">Low</p>
+            </div>
+          </div>
+        )}
       </div>
     </main>
   );
