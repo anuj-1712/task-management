@@ -1,0 +1,15 @@
+.add-icon{
+    height: 30px;
+    width: 30px;
+    color: white;
+}
+
+.edit-icon,.delete-icon{
+    height: 20px;
+    width: 20px;
+}
+
+.add-icon:hover,.edit-icon:hover,.delete-icon:hover{
+    transform: scale(1.2);
+    cursor: pointer;
+}
